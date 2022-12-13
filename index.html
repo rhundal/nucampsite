@@ -192,10 +192,25 @@
                         <span class="carousel-control-prev-icon"> </span>
                         <span class="sr-only"> Previous </span>
                     </a>
+                    
                     <a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">
                         <span class="carousel-control-next-icon"> </span>
                         <span class="sr-only"> Next </span>
                     </a>
+                        <button class="btn btn-danger" id="carouselButton">
+                            <i class="fa fa-pause"></i>
+                        </button>
+
+                    <!-- will implement 1 button only instead
+                    <div class="btn-group" id="carouselButton">
+                        <button class="btn btn-danger" id="carouselPause">
+                            <i class="fa fa-pause"></i>
+                        </button>
+                        <button class="btn btn-danger" id="carouselPlay">
+                            <i class="fa fa-play"></i>
+                        </button>
+                    </div>
+                    -->
                 </div>
             </div>
         </div>
@@ -327,6 +342,39 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
         */
+
+        $(function(){   
+
+            $(".carousel").carousel({interval: 2000});
+            $("#carouselButton").click(function(){
+                if($("#carouselButton").children("i").hasClass("fa-pause")) {
+
+                    $(".carousel").carousel("pause");
+                    $("#carouselButton").children("i").removeClass("fa-pause");
+                    $("#carouselButton").children("i").addClass("fa-play");
+                }else {
+
+                        $(".carousel").carousel("cycle");
+                        $("#carouselButton").children("i").removeClass("fa-play");
+                        $("#carouselButton").children("i").addClass("fa-pause");
+
+                }
+ 
+            });
+            
+        });
+
+        /* script for group buttons - pause and play
+        $(function(){   
+
+            $(".carousel").carousel({interval: 2000});
+            $("#carouselPause").click(function(){
+                $(".carousel").carousel("pause");
+            });
+            $("#carouselPlay").click(function(){
+                $(".carousel").carousel("cycle");
+            })
+        }); */
     </script>
 
 </body>
