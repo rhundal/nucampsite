@@ -6,6 +6,22 @@
 
         $(function(){   
 
+            $("#reserveButton").click(function(){
+
+                $('#reserveModal').modal('toggle')
+
+            });
+
+            $("#loginButton").click(function(){
+
+                $('#loginModal').modal('toggle')
+
+            });
+
+        });
+
+        $(function(){   
+
             $(".carousel").carousel({interval: 2000});
             $("#carouselButton").click(function(){
                 if($("#carouselButton").children("i").hasClass("fa-pause")) {
